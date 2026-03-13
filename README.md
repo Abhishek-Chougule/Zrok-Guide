@@ -430,7 +430,7 @@ If needed reload the shell:
 source ~/.bashrc
 ```
 
-# Task 2.0 — Share Using a Reserved Address (zrok)
+# Share Using a Reserved Address (zrok)
 
 Instead of using a **random public URL**, zrok allows you to **reserve a permanent share address**.
 This ensures that every time you start the share, the **same URL is used**.
