@@ -237,6 +237,213 @@ Only expose **development or demo environments**.
 
 ---
 
+# Zrok Installation Script Guide (Linux / Ubuntu)   Easy Installation
+
+This guide explains how to use the **automatic installation script** to install zrok on a Linux system.
+
+Instead of manually downloading and installing zrok, the script performs all steps automatically.
+
+---
+
+# What the Script Does
+
+The script performs the following tasks automatically:
+
+1. Checks if required tools (`wget`, `tar`) are installed
+2. Downloads the latest **zrok release (v1.1.11)**
+3. Extracts the zrok binary
+4. Moves the binary to the system path `/usr/local/bin`
+5. Verifies the installation
+6. Optionally enables the **zrok environment** using your token
+
+---
+
+# Step 1 — Clone or Download the Repository
+
+Clone the repository containing the script.
+
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+```
+
+Navigate into the directory:
+
+```bash
+cd <repo-name>
+```
+
+---
+
+# Step 2 — Make the Script Executable
+
+Before running the script, give it execution permission.
+
+```bash
+chmod +x install_zrok.sh
+```
+
+---
+
+# Step 3 — Run the Installation Script
+
+Run the script using:
+
+```bash
+./install_zrok.sh
+```
+
+This will:
+
+* download zrok
+* install it
+* verify the installation
+
+After installation you should see:
+
+```
+zrok version v1.1.11
+```
+
+---
+
+# Step 4 — Enable Your Zrok Environment
+
+Login to the zrok console:
+
+https://api-v1.zrok.io
+
+Copy your **environment token**.
+
+Then run:
+
+```bash
+zrok enable <YOUR_TOKEN>
+```
+
+Example:
+
+```bash
+zrok enable zrktkn_abc123xyz
+```
+
+---
+
+# Optional: Run Script with Token
+
+You can also enable your environment directly using the script.
+
+```bash
+./install_zrok.sh <YOUR_TOKEN>
+```
+
+Example:
+
+```bash
+./install_zrok.sh zrktkn_abc123xyz
+```
+
+The script will automatically enable the environment after installation.
+
+---
+
+# Verify Installation
+
+Run:
+
+```bash
+zrok version
+```
+
+Expected output:
+
+```
+zrok version v1.1.11
+```
+
+---
+
+# Share a Local Server
+
+Once installed and enabled, you can expose a local server.
+
+Example for a service running on port **8000**:
+
+```bash
+zrok share public 8000
+```
+
+Example output:
+
+```
+https://abcd1234.share.zrok.io
+```
+
+Anyone with this link can access your local service.
+
+---
+
+# Example: Share a Frappe Site
+
+If your Frappe site runs on:
+
+```
+http://localhost:8000
+```
+
+Run:
+
+```bash
+zrok share public 8000
+```
+
+Your local Frappe instance will now be accessible from the internet.
+
+---
+
+# Stop Sharing
+
+To stop the share session press:
+
+```
+CTRL + C
+```
+
+---
+
+# Troubleshooting
+
+If the `zrok` command is not found, verify installation path:
+
+```
+which zrok
+```
+
+Expected output:
+
+```
+/usr/local/bin/zrok
+```
+
+If needed reload the shell:
+
+```
+source ~/.bashrc
+```
+
+---
+
+# Security Warning
+
+Never expose:
+
+* production environments
+* sensitive data
+* internal company services
+
+Only expose **development or demo systems**.
+
+---
+
 # References
 
 Official Documentation
